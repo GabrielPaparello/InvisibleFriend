@@ -21,14 +21,14 @@ export const ModalPrompt = () => {
       <div className={`flex justify-center items-center}`}>
         <div className={
 
-          `bg-slate-400 w-96 h-80 absolute  transition-all duration-700
+          `bg-slate-400 flex flex-col justify-center w-96 h-80 absolute  transition-all duration-700
         ${ModalOpen ? `top-1/4` : `-top-1/2`}
         ${Submited ? setModalOpen(false) : ``}
 
         `}>
           <form onSubmit={handleSubmit} className="flex flex-col items-center">
-            <label>¿Cuatos participan?</label>
-              <input type="number" name='cantidad' />
+            <label className="text-lg font-medium">¿Cuatos participan?</label>
+              <input className="m-4" type="number" name='cantidad' />
             <input type="submit" value='Enviar'></input>
           </form>
         </div>
