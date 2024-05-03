@@ -1,29 +1,37 @@
-import { useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react"
+import Players from './Players'
+export const CantidadContext = createContext();
 
 export const ModalPrompt = () => {
   const [ModalOpen, setModalOpen] = useState(false)
   const [Submited, setSubmited] = useState(false)
+  const [Cantidad, setCantidad] = useState(0)
+
+ 
   useEffect(() => {
      const timer= setTimeout(() => {
         setModalOpen(true)
-      }, 700);
+      }, 500);
       return () => clearTimeout(timer)
   }, [])
   const handleSubmit = (e) => {
     e.preventDefault();
+    const cantidadValue = e.target.elements.cantidad.value;
+    setCantidad(cantidadValue)
     setSubmited(true)
     e.target.reset()
+    
   }
-  console.log('modal',ModalOpen);
-  console.log('submit',Submited);
+  
   return (
     <>
+     
       <div className={`flex justify-center items-center}`}>
         <div className={
 
           `bg-slate-400 flex flex-col justify-center w-96 h-80 absolute  transition-all duration-700
         ${ModalOpen ? `top-1/4` : `-top-1/2`}
-        ${Submited ? setModalOpen(false) : ``}
+        ${Submited ? `hidden`: ``}
 
         `}>
           <form onSubmit={handleSubmit} className="flex flex-col items-center">
@@ -32,8 +40,8 @@ export const ModalPrompt = () => {
             <input type="submit" value='Enviar'></input>
           </form>
         </div>
-      
       </div>
+      <Players cantidad={Cantidad} modal={Submited} />
       </>
   )
 }
