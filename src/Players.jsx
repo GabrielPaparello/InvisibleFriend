@@ -1,20 +1,25 @@
 import { useState } from "react";
 const Players = () => {
     const [MoveDiv, setMoveDiv] = useState({ left: "" });
+     const [count, setCount] = useState(0);
   const handleSubmit = (e) => {
     e.preventDefault();
-    e.target.reset();
-      const value = Math.floor(Math.random() * 900);
-      setMoveDiv({ left: value, top: "55%" ,transform: 'scale(.4)'});
+      e.target.reset();
+      const value = Math.floor(Math.random() * 300) ;
+      setCount(prevCount => prevCount + value);
+      setMoveDiv({left: value ,top: "55%" ,transform: 'scale(.4)'});
+      
+      
      
-  };
+    };
+    
 
   return (
     <>
         <div className="flex justify-center">
           <div
             style={MoveDiv}
-            className={`w-56 h-56 rounded-3xl bg-gray-500 absolute  top-1/4`}
+            className={`transition-all  duration-300 w-56 h-56 rounded-3xl bg-gray-500 absolute  top-1/4`}
           >
             <form onSubmit={handleSubmit} className="text-center flex flex-col">
               <label className="inline-block my-2">Participante 1</label>
