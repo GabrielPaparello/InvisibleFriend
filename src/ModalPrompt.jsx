@@ -33,7 +33,7 @@ export const ModalPrompt = () => {
         `}
         >
           <form onSubmit={handleSubmit} className="flex flex-col items-center">
-            <label className="text-lg font-medium">¿Cuatos participan?</label>
+            <h2 className="text-lg font-medium">¿Cuatos participan?</h2>
             <input className="m-4" type="number" name="cantidad" />
             <input type="submit" value="Enviar"></input>
           </form>

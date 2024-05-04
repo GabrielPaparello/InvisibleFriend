@@ -9,4 +9,13 @@ body {
 }
 
 .transform {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: 90px;
+  /* background-color: #ccc; */
+  border: 1px solid #000;
+  padding: 20px;
+  transform: translateY(calc(90% * var(--index)));
 }
