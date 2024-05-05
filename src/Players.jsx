@@ -7,6 +7,7 @@ const Players = ({index, stilo}) => {
   let [nombre, setNombre] = useState("");
   let [email, setEmail] = useState("");
   let [ID, setID] = useState("");
+  let [randomNum, setRandomNum] = useState('');
 
 
   const handleSubmit = (e,index) => {
@@ -21,7 +22,6 @@ const Players = ({index, stilo}) => {
     setPlayers({ nombre: newNombre, email: newEmail,ID:newID });
     e.target.reset();
   };
- 
   
   return (
     <>
