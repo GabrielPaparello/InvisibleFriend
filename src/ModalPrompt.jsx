@@ -1,7 +1,6 @@
-import { createContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 
 import PlayerLogicRender from "./PlayerLogicRender";
-export const CantidadContext = createContext();
 
 export const ModalPrompt = () => {
   const [ModalOpen, setModalOpen] = useState(false);

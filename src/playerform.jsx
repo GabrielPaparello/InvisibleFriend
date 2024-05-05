@@ -1,11 +1,10 @@
 
-
 const Playerform = ({handleSubmit , index}) => {
   return (
    <>
-        <form onSubmit={handleSubmit} className="text-center flex flex-col">
+        <form onSubmit={(e) => handleSubmit(e, index+1)} className="text-center flex flex-col">
           <h2 className="inline-block my-2 -ml-4">
-            Participante {index}
+            Participante {index+1}
           </h2>
               <textarea
                 className="resize-none m-2"

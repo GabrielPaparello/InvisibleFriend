@@ -1,10 +1,10 @@
 import Players from "./Players";
-const PlayerLogicRender = (props) => {
+const PlayerLogicRender = ({modal, cantidad}) => {
   return (
     <>
       <div className="flex flex-wrap w-full justify-center top-3/4 ">
-        {props.modal === true &&
-          Array.from({ length: props.cantidad }).map((_, index) => (
+        {modal === true &&
+          Array.from({ length: cantidad }).map((_, index) => (
             <Players index={index} stilo={'transform'} key={index} />
           ))}
       </div>

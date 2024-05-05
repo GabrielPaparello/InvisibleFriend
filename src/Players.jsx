@@ -1,23 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Playerform from "./playerform";
 const Players = ({index, stilo}) => {
 
   const [MoveDiv, setMoveDiv] = useState(false);
-  let [players, setPlayers] = useState([{ nombre: "", email: "" }]);
+  let [players, setPlayers] = useState([{ nombre: "", email: "", ID:'' }]);
   let [nombre, setNombre] = useState("");
   let [email, setEmail] = useState("");
+  let [ID, setID] = useState("");
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = (e,index) => {
     e.preventDefault();
     const newNombre = e.target.nombre.value;
     const newEmail = e.target.email.value;
+    const newID = index
     setMoveDiv(!MoveDiv);
     setNombre((prevNombre) => newNombre);
     setEmail((prevEmail) => newEmail);
-    setPlayers({ nombre: newNombre, email: newEmail });
+    setID((prevID) => newID);
+    setPlayers({ nombre: newNombre, email: newEmail,ID:newID });
     e.target.reset();
   };
-
+ 
+  
   return (
     <>
       <div
