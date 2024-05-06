@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Playerform from "./playerform";
-const Players = ({index, stilo}) => {
+const Players = ({index, stilo,initial}) => {
 
   const [MoveDiv, setMoveDiv] = useState(false);
   let [players, setPlayers] = useState([{ nombre: "", email: "", ID:'' }]);
@@ -22,13 +22,17 @@ const Players = ({index, stilo}) => {
     setPlayers({ nombre: newNombre, email: newEmail,ID:newID });
     e.target.reset();
   };
-  
+  useEffect(() => {
+     console.log(players)
+    
+  },[players])
   return (
     <>
       <div
         style={{ "--index": index }}
+        id={index+1}
         className={`transition-all duration-300 w-56 h-56 rounded-3xl bg-gray-500 top-1/4 ml-5  ${
-          MoveDiv ? `${stilo}` : "absolute"
+          MoveDiv ? `${stilo}` : `absolute`
         } `}
       >
         {MoveDiv ? (

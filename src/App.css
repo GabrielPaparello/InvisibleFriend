@@ -19,3 +19,7 @@ body {
   padding: 20px;
   transform: translateY(calc(90% * var(--index)));
 }
+
+.initial {
+  display: none;
+}
