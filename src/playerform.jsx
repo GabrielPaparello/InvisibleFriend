@@ -12,7 +12,8 @@ const Playerform = ({handleSubmit , index}) => {
                 id=""
                 cols="20"
                 rows="1"
-                placeholder="Inserte su nombre"
+          placeholder="Inserte su nombre"
+          autoComplete="on"
               ></textarea>
               <textarea
                 name="email"
@@ -20,7 +21,9 @@ const Playerform = ({handleSubmit , index}) => {
                 id=""
                 cols="20"
                 rows="1"
-                placeholder="Inserte su mail"
+          placeholder="Inserte su mail"
+          autoComplete="on"
+          
               ></textarea>
               <input type="submit" value="Enviar" />
             

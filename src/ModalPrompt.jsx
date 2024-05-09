@@ -1,7 +1,6 @@
-import {  useEffect, useState } from "react";
+import {   useEffect, useState } from "react";
 
 import PlayerLogicRender from "./PlayerLogicRender";
-
 export const ModalPrompt = () => {
   const [ModalOpen, setModalOpen] = useState(false);
   const [Submited, setSubmited] = useState(false);
@@ -32,7 +31,7 @@ export const ModalPrompt = () => {
         `}
         >
           <form onSubmit={handleSubmit} className="flex flex-col items-center">
-            <h2 className="text-lg font-medium">¿Cuatos participan?</h2>
+            <h2 className="text-lg font-medium">¿Cuantos participan?</h2>
             <input className="m-4" type="number" name="cantidad" />
             <input type="submit" value="Enviar"></input>
           </form>

@@ -1,33 +1,46 @@
 import { useEffect, useState } from "react";
 import Playerform from "./playerform";
-const Players = ({index, stilo,initial}) => {
+import LogicComponent from "../logic";
 
+const Players = ({active,index, stilo,initial,cantidad}) => {
   const [MoveDiv, setMoveDiv] = useState(false);
-  let [players, setPlayers] = useState([{ nombre: "", email: "", ID:'' }]);
-  let [nombre, setNombre] = useState("");
-  let [email, setEmail] = useState("");
-  let [ID, setID] = useState("");
-  let [randomNum, setRandomNum] = useState('');
-
+  let[player,setPlayer] = useState([])
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [ID, setID] = useState("");
 
   const handleSubmit = (e,index) => {
     e.preventDefault();
-    const newNombre = e.target.nombre.value;
-    const newEmail = e.target.email.value;
-    const newID = index
     setMoveDiv(!MoveDiv);
-    setNombre((prevNombre) => newNombre);
-    setEmail((prevEmail) => newEmail);
-    setID((prevID) => newID);
-    setPlayers({ nombre: newNombre, email: newEmail,ID:newID });
+    setNombre(e.target.nombre.value);
+    setEmail(e.target.email.value);
+    setID(index);
+    const jugador = { ID: index, nombre:e.target.nombre.value, email:e.target.email.value }
+    console.log(jugador)
+    setPlayer((player) => {
+      return [...player, jugador]
+      
+    })
     e.target.reset();
+
   };
+  
   useEffect(() => {
-     console.log(players)
-    
-  },[players])
+    // Call back to avoid upping the state and only activated when clicked.
+    console.log(active)
+    if (active === true) {
+      const random = Math.floor(Math.random() * cantidad)
+      const clicked = () => {
+        const filteredPlayers = player.filter((player) => player.nombre === player.nombre[random]);
+        console.log('filtrado', filteredPlayers);
+      }
+      clicked();
+    } else {return }
+  },[active])
   return (
     <>
+      <LogicComponent player={player} cantidad={cantidad} />
+
       <div
         style={{ "--index": index }}
         id={index+1}
