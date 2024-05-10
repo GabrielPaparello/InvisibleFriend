@@ -33,3 +33,8 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+/* CONTROLA LA VELOCIDAD DE LA ANIMACION DEL MODAL REFACTORIZADO */
+.modalContainer {
+  transition-duration: 7000ms;
+}
