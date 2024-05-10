@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import Playerform from "./playerform";
-import LogicComponent from "../logic";
 
-const Players = ({active,index, stilo,initial,cantidad}) => {
+const Players = ({active,index, stilo,initial,cantidad,}) => {
   const [MoveDiv, setMoveDiv] = useState(false);
   let[player,setPlayer] = useState([])
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [ID, setID] = useState("");
+  const [matches, setMatches] = useState([])
+  const [numb,setNumb] = useState()
+  
+ 
 
   const handleSubmit = (e,index) => {
     e.preventDefault();
@@ -22,25 +25,34 @@ const Players = ({active,index, stilo,initial,cantidad}) => {
       
     })
     e.target.reset();
-
   };
-  
   useEffect(() => {
     // Call back to avoid upping the state and only activated when clicked.
-    console.log(active)
     if (active === true) {
-      const random = Math.floor(Math.random() * cantidad)
-      const clicked = () => {
-        const filteredPlayers = player.filter((player) => player.nombre === player.nombre[random]);
-        console.log('filtrado', filteredPlayers);
-      }
+      setNumb( Math.floor(Math.random() * cantidad) + 1)
       clicked();
-    } else {return }
+    }
+    else {
+      return
+    }
   },[active])
+  
+const clicked = () => {
+        player.map((player,index) => {
+          if (numb == player.ID) {
+            setMatches((prevPlayer)=>[...prevPlayer,player])
+            console.log('this is equal', matches)
+            setNumb()
+            
+        }
+      })      
+      }
+
   return (
     <>
-      <LogicComponent player={player} cantidad={cantidad} />
-
+      {matches.map((_,index) => {
+        <div key={index}><h1>{matches}</h1></div>
+        })}
       <div
         style={{ "--index": index }}
         id={index+1}

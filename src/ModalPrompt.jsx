@@ -14,8 +14,8 @@ export const ModalPrompt = () => {
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
-    const cantidadValue = e.target.elements.cantidad.value;
-    setCantidad(cantidadValue);
+    const  cantidadValue = e.target.elements.cantidad.value;
+    setCantidad(parseInt(cantidadValue));
     setSubmited(true);
     e.target.reset();
   };

@@ -1,17 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Players from "./Players";
-const PlayerLogicRender = ({ modal, cantidad }) => {
-
+const PlayerLogicRender = ({ modal, cantidad , }) => {
   const [active,setActive] = useState(false)
+ 
   const click = () => {
-    setActive(!active)
+    setActive(true)
+    
+   
     // Timeout to allow to repress the button for next Player
-    setTimeout(() => {
-      setActive(false)
-      
-    }, 1000)
-    console.log(active)
+    const timer = setTimeout(() => {
+        setActive(false)
+      }, 500)
+    return () => clearTimeout(timer);
   }
+ 
   return (
     <>
       <div className="flex flex-wrap w-full justify-center top-3/4 ">
