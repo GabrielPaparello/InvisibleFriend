@@ -1,7 +1,7 @@
 
 export const Modal = ({modalForm}) => {
     return (
-        <div className='bg-slate-600'>
+        <div className='bg-slate-600 h-full'>
           <form onSubmit={modalForm} className="flex flex-col items-center pt-4">
             <h2 className="text-lg font-medium">¿Cuantos participan?</h2>
             <input className="m-4 text-center cursor-pointer " type="number" name="cantidad" />

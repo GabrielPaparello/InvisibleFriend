@@ -1,6 +1,6 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { Modal } from "./modal";
-import { Logica } from "./Logica";
+import {  RenderPlayers } from "./RenderPlayers";
 import { PlayerData } from "./PlayerData";
 
 
@@ -9,46 +9,61 @@ export const App = () => {
     const [cantidad, setCantidad] = useState()
     
     // REFACTORIZAR
-  let[player,setPlayer] = useState([])
-  const [nombre, setNombre] = useState("");
-  const [email, setEmail] = useState("");
-  const [ID, setID] = useState(0);
+    let [player, setPlayer] = useState([])
+    const [ID, setID] = useState(0);
+    const [nombre, setNombre] = useState([])
+    const [match,setMatch] = useState(['',''])
 
 
-
-// SETS THE AMOUNT OF PLAYERS
-const modalForm = (e) => {
-    e.preventDefault();
-    setCantidad(parseInt(e.target.elements.cantidad.value));
-    e.target.reset();
+    // User_Input Asigna cantidad de jugadores.
+    const modalForm = (e) => {
+        e.preventDefault();
+        setCantidad(parseInt(e.target.elements.cantidad.value));
+        e.target.reset();
     };
     
 
-// SETS THE PLAYER DATA
+    // SETS THE PLAYER DATA
+    
     const playerData = (e) => {
-    e.preventDefault();
-    setNombre(e.target.nombre.value);
-    setEmail(e.target.email.value);
-    setID( (prevValue) => prevValue ++);
-    const jugador = { ID: ID, nombre:e.target.nombre.value, email:e.target.email.value }
-    setPlayer((player) => {return [...player, jugador]})
-      
-    e.target.reset();
-    }
-    
-    
+        e.preventDefault();
+        setID((prevValue) => prevValue + 1);
+        const jugador = { ID: ID, nombre: e.target.nombre.value, email: e.target.email.value }
+        setPlayer((player) => { return [...player, jugador] })
+        const nombrecin = e.target.nombre.value
+        setNombre((nombre) => [...nombre, nombrecin])
 
+        e.target.reset();
+    }
+    // LOGICA
+    
+                const apretameC = () => {
+                    let match1=('random', player[Math.floor(Math.random() * cantidad)])
+                    let match2=('random', player[Math.floor(Math.random() * cantidad)])
+                    setMatch([match1.nombre,'>>>',match2.nombre])
+    
+}
   return (
       <>
-          <div className={`modalContainer absolute w-full transition-all  ease-out ${cantidad ? `   -top-full` : `top-0` }`}>
+          {/* Modal Cantidad Request + Animation */}
+          <div className={`modalContainer absolute w-full  transition-all  ease-out ${cantidad ? `   -top-full` : `top-0` }`}>
               <Modal modalForm={modalForm} />
           </div>
 
-          <Logica cantidad={cantidad} player={player} />
-
+          {/* Formulario de Usar Data */}
             <div className={`absolute left-1/3 w-96  top-1/3  ${cantidad ? `` : `hidden` }  ${cantidad == player.length ? `hidden` : ``}`}>
               <PlayerData playerData={playerData} />  
-            </div>
+          </div>
+          
+          {/* Render para animacion de amigo invisble logica */}
+          <RenderPlayers nombre={nombre} />
+
+          {/* Logica posible , Refactor THIS */}
+          <button onClick={apretameC} className="bg-slate-600 text-white max-w-max p-2 ml-5">Apretame</button>
+          <div className="bg-amber-400 max-w-fit min-w-72 text-center absolute left-28">
+              <h1>Pareja</h1>
+              <div>{match}</div>
+          </div>
       </>
   )
 }
