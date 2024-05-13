@@ -12,8 +12,11 @@ export const App = () => {
     let [player, setPlayer] = useState([])
     const [ID, setID] = useState(0);
     const [nombre, setNombre] = useState([])
+
+    //  ESTADO PARA EMPAREJAR 
     const [match,setMatch] = useState(['',''])
 
+    // ESTADO DE ACTIVACION DE LOGICA
 
     // User_Input Asigna cantidad de jugadores.
     const modalForm = (e) => {
@@ -35,13 +38,18 @@ export const App = () => {
 
         e.target.reset();
     }
-    // LOGICA
+    // LOGICA DE EMPAREJAMIENTO
     
-                const apretameC = () => {
-                    let match1=('random', player[Math.floor(Math.random() * cantidad)])
-                    let match2=('random', player[Math.floor(Math.random() * cantidad)])
-                    setMatch([match1.nombre,'>>>',match2.nombre])
+    const apretameC = () => {
+
+
+        let match1 = ('random', player[Math.floor(Math.random() * cantidad)])
+        let match2 = ('random', player[Math.floor(Math.random() * cantidad)])
+        setMatch([match1.nombre, '>>>', match2.nombre])
     
+            
+        
+        
 }
   return (
       <>
@@ -56,14 +64,9 @@ export const App = () => {
           </div>
           
           {/* Render para animacion de amigo invisble logica */}
-          <RenderPlayers nombre={nombre} />
+          <RenderPlayers nombre={nombre} apretameC={apretameC} match={match} cantidad={cantidad} />
 
-          {/* Logica posible , Refactor THIS */}
-          <button onClick={apretameC} className="bg-slate-600 text-white max-w-max p-2 ml-5">Apretame</button>
-          <div className="bg-amber-400 max-w-fit min-w-72 text-center absolute left-28">
-              <h1>Pareja</h1>
-              <div>{match}</div>
-          </div>
+          
       </>
   )
 }
