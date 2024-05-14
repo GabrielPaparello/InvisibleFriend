@@ -14,9 +14,15 @@ export const App = () => {
     const [nombre, setNombre] = useState([])
 
     //  ESTADO PARA EMPAREJAR 
-    const [match,setMatch] = useState(['',''])
+    const [match,setMatch] = useState([])
 
     // ESTADO DE ACTIVACION DE LOGICA
+
+    // ESTADO DE DESACTIVACION DE LOGICA
+    const [disabled, setDisabled] = useState(false)
+    
+    // ESTADO PARA CORROBORAR SI YA SALIO UN JUGADOR
+    const [isIn,setIsIn]=useState([])
 
     // User_Input Asigna cantidad de jugadores.
     const modalForm = (e) => {
@@ -41,12 +47,20 @@ export const App = () => {
     // LOGICA DE EMPAREJAMIENTO
     
     const apretameC = () => {
-
-
-        let match1 = ('random', player[Math.floor(Math.random() * cantidad)])
-        let match2 = ('random', player[Math.floor(Math.random() * cantidad)])
-        setMatch([match1.nombre, '>>>', match2.nombre])
-    
+// FILTER???? filter = element != elementparafiltrar ?
+        player.forEach(element => {
+            let match2 = ('random', player[Math.floor(Math.random() * cantidad)])
+            let find = isIn.includes(match2,0)
+            if (match2 != element && find == false) {
+                setMatch((prevMatch) => [...prevMatch, [element.nombre, match2.nombre]])
+                setIsIn((prevIn)=>[...prevIn,match2.nombre])  
+                setDisabled(true)
+                }
+            
+            
+        });
+        
+        
             
         
         
@@ -64,7 +78,7 @@ export const App = () => {
           </div>
           
           {/* Render para animacion de amigo invisble logica */}
-          <RenderPlayers nombre={nombre} apretameC={apretameC} match={match} cantidad={cantidad} />
+          <RenderPlayers nombre={nombre} disabled={disabled} apretameC={apretameC} match={match} cantidad={cantidad} />
 
           
       </>
