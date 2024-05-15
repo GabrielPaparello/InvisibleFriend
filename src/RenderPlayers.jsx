@@ -1,5 +1,5 @@
 
-export const RenderPlayers = ({nombre,apretameC,match,cantidad,disabled}) => {
+export const RenderPlayers = ({nombre,apretameC,match,disabled}) => {
   
 
     return (
@@ -23,15 +23,15 @@ export const RenderPlayers = ({nombre,apretameC,match,cantidad,disabled}) => {
             <h1>Pareja</h1>
           <div>
             {/* ARREGLAR EL KEY DE MATH RANDOM TO UUID */}
-            {match.map(elementos=> (
-            <div key={Math.random}>
+            {/* {match.map(elementos=> (
+            <div key={Math.random+2}>
                 {elementos.map(elemento => (
                     <div key={Math.random}>{elemento}</div>
 
                     
         ))}
     </div>
-))}
+))} */}
           </div>
           </div>
         
