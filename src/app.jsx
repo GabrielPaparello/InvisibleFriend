@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Modal } from "./modal";
-import { RenderPlayers } from "./RenderPlayers";
 import { PlayerData } from "./PlayerData";
 
 export const App = () => {
@@ -13,7 +12,7 @@ export const App = () => {
   const [nombre, setNombre] = useState([]);
 
   //  ESTADO PARA EMPAREJAR
-  const [match, setMatch] = useState([]);
+  const [match, setMatch] = useState({});
 
   // ESTADO DE ACTIVACION DE LOGICA
 
@@ -50,21 +49,20 @@ export const App = () => {
   };
   // LOGICA DE EMPAREJAMIENTO
 
-  const apretameC = () => {
+  const [assignments, setAssignments] = useState({});
 
-    player.forEach((element) => {
-      let match2 = player[Math.floor(Math.random() * cantidad)];
-      if (!salio.some((el) => el.nombre !== match2.nombre)) {
-        if (element.nombre != match2.nombre) {
-          setSalio((prevSalio) => [...prevSalio, match2.nombre]);
-          setMatch((prevMatch) => [
-            ...prevMatch,
-            [element.nombre, match2.nombre],
-          ]);
-        //   setDisabled(true);
-        }
-      }
+  const apretameC = () => {
+    const shuffledPlayers = [...player].sort(() => Math.random() - 0.5);
+    const newAssignments = {};
+
+    shuffledPlayers.forEach((element, index) => {
+      const matchIndex = (index + 1) % shuffledPlayers.length;
+      const match = shuffledPlayers[matchIndex];
+      newAssignments[element.nombre] = match.nombre;
     });
+
+    setAssignments(newAssignments);
+    setDisabled(true);
   };
 
   return (
@@ -80,21 +78,55 @@ export const App = () => {
 
       {/* Formulario de Usar Data */}
       <div
-        className={`absolute left-1/3 w-96  top-1/3  ${
-          cantidad ? `` : `hidden`
-        }  ${cantidad == player.length ? `hidden` : ``}`}
+        className={`absolute left-1/3 w-96  top-1/3  duration-1000${
+          cantidad ? ` scale-100` : `hidden scale-0`
+        }  ${cantidad == player.length ? `hidden scale-0` : ``}`}
       >
         <PlayerData playerData={playerData} />
       </div>
 
       {/* Render para animacion de amigo invisble logica */}
-      <RenderPlayers
-        nombre={nombre}
-        disabled={disabled}
-        apretameC={apretameC}
-        match={match}
-        cantidad={cantidad}
-      />
+
+      <div className="flex flex-col  items-center ">
+        <h1 className="mt-2 font-serif text-3xl">Participantes</h1>
+        <div className="flex justify-center my-4">
+          {nombre.map((jugador, index) => (
+            <div
+              key={index}
+              className="bg-white to-transparent rounded-2xl my-5 mx-2 p-2 max-w-max min-w-16 text-center text-black  shadow-outline shadow-2xl"
+            >
+              <h2>{jugador}</h2>
+            </div>
+          ))}
+        </div>
+        <button
+          onClick={apretameC}
+          className={`${
+            disabled ? `hidden` : `cursor-pointer`
+          }  bg-slate-600 hover:scale-105 hover:bg-slate-400 shadow-black shadow-sm text-white max-w-max p-2 rounded-md`}
+        >
+          Clickee para emparejar
+        </button>
+        <div
+          className={`${
+            disabled ? `scale-1` : `scale-0`
+          } duration-700 bg-lime-400 max-w-fit min-w-72 text-center  my-5 rounded-xl shadow-xl`}
+        >
+          <h1 className="font-serif text-2xl font-bold pt-3">Parejas</h1>
+
+          {/* ARREGLAR EL KEY DE MATH RANDOM TO UUID */}
+          <div className="my-4">
+            {player.map((player) => (
+              <div key={player.id} className={`m-4`}>
+                <h2 className="font-semibold font-sans text-start">
+                  <em>Participante {player.id}</em> {player.nombre} Te toco a{" "}
+                  <span className="font-bold bg-yellow-400">{assignments[player.nombre] || "????"}</span>
+                </h2>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </>
   );
 };
