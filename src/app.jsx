@@ -6,15 +6,25 @@ import PlayerRender from "./PlayerRender";
 export const App = () => {
   // CANTIDAD DE JUGADORES
   const [cantidad, setCantidad] = useState();
-
+  
   // REFACTORIZAR
   let [player, setPlayer] = useState([]);
   const [ID, setID] = useState(0);
   const [nombre, setNombre] = useState([]);
-
+  
   // ESTADO DE DESACTIVACION DE LOGICA
   const [disabled, setDisabled] = useState(false);
+  
+  // LOGICA DE EMPAREJAMIENTO
+  
+  const [assignments, setAssignments] = useState({});
+  
+  // LOGICA PARA ANIMACION DE COLORES
+  const [text, setText] = useState("Click para emparejar");
+  const [color, setColor] = useState("bg-slate-600");
+  const [stop, setStop] = useState(false); 
 
+  
   // User_Input Asigna cantidad de jugadores.
   const modalForm = (e) => {
     e.preventDefault();
@@ -40,26 +50,21 @@ export const App = () => {
 
     e.target.reset();
   };
-  // LOGICA DE EMPAREJAMIENTO
-
-  const [assignments, setAssignments] = useState({});
-
   // LOGICA PARA ANIMACION DE COLORES
-  const [text, setText] = useState("Click para emparejar");
-  const [color, setColor] = useState("bg-slate-600");
-  const colors = ["bg-red-500", "bg-blue-500"]; // Define an array of colors
-  let index = 0; // Initialize an index variable to keep track of the current color index
-  const [stop, setStop] = useState(false); // State to control stopping the color change
-  // simula animacion de emparejamiento
+
+  const colors = ["bg-red-500", "bg-blue-500"]; 
+  let index = 0; 
+
+  // simula Carga ==> animacion de emparejamiento
   useEffect(() => {
     const interval = setInterval(() => {
       if (stop) {
-        setColor(colors[index]); // Set the color based on the current index
-        index = (index + 1) % colors.length; // Update the index for the next color
+        setColor(colors[index]); 
+        index = (index + 1) % colors.length; 
       }
     }, 500);
 
-    return () => clearInterval(interval); // Clean up the interval
+    return () => clearInterval(interval); 
   }, [stop]);
 
   // inicia emparejamiento y animacion
