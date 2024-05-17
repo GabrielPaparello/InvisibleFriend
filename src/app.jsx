@@ -12,8 +12,6 @@ export const App = () => {
   const [ID, setID] = useState(0);
   const [nombre, setNombre] = useState([]);
 
- 
-
   // ESTADO DE DESACTIVACION DE LOGICA
   const [disabled, setDisabled] = useState(false);
 
@@ -52,7 +50,7 @@ export const App = () => {
   const colors = ["bg-red-500", "bg-blue-500"]; // Define an array of colors
   let index = 0; // Initialize an index variable to keep track of the current color index
   const [stop, setStop] = useState(false); // State to control stopping the color change
-// simula animacion de emparejamiento
+  // simula animacion de emparejamiento
   useEffect(() => {
     const interval = setInterval(() => {
       if (stop) {
@@ -97,24 +95,26 @@ export const App = () => {
       </div>
 
       {/* Formulario de Usar Data */}
-      <div
-        className={`absolute left-1/3 w-96  top-1/3  duration-1000${
-          cantidad ? ` scale-100` : `hidden scale-0`
-        }  ${cantidad == player.length ? `hidden scale-0` : ``}`}
-      >
-        <PlayerData playerData={playerData} />
-      </div>
+      <div className="flex flex-col items-center">
+        <div
+          className={`  w-96  order-1  duration-1000${
+            cantidad ? ` scale-100` : `hidden scale-0`
+          }  ${cantidad == player.length ? `hidden scale-0` : ``}`}
+        >
+          <PlayerData playerData={playerData} />
+        </div>
 
-      {/* Render para animacion de amigo invisble  */}
-      <PlayerRender
-        player={player}
-        assignments={assignments}
-        nombre={nombre}
-        disabled={disabled}
-        apretameC={apretameC}
-        text={text}
-        color={color}
-      />
+        {/* Render para animacion de amigo invisble  */}
+        <PlayerRender
+          player={player}
+          assignments={assignments}
+          nombre={nombre}
+          disabled={disabled}
+          apretameC={apretameC}
+          text={text}
+          color={color}
+        />
+      </div>
     </>
   );
 };
