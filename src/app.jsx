@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Modal } from "./modal";
 import { PlayerData } from "./PlayerData";
+import PlayerRender from "./PlayerRender";
 
 export const App = () => {
   // CANTIDAD DE JUGADORES
@@ -11,7 +12,7 @@ export const App = () => {
   const [ID, setID] = useState(0);
   const [nombre, setNombre] = useState([]);
 
-  // ESTADO DE ACTIVACION DE LOGICA
+ 
 
   // ESTADO DE DESACTIVACION DE LOGICA
   const [disabled, setDisabled] = useState(false);
@@ -46,23 +47,24 @@ export const App = () => {
   const [assignments, setAssignments] = useState({});
 
   // LOGICA PARA ANIMACION DE COLORES
-  const [text,setText] = useState('Click para emparejar');
-  const [color, setColor] = useState('bg-slate-600');
-const colors = ['bg-red-500', 'bg-blue-500']; // Define an array of colors
-let index = 0; // Initialize an index variable to keep track of the current color index
-const [stop, setStop] = useState(false); // State to control stopping the color change
+  const [text, setText] = useState("Click para emparejar");
+  const [color, setColor] = useState("bg-slate-600");
+  const colors = ["bg-red-500", "bg-blue-500"]; // Define an array of colors
+  let index = 0; // Initialize an index variable to keep track of the current color index
+  const [stop, setStop] = useState(false); // State to control stopping the color change
+// simula animacion de emparejamiento
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (stop) {
+        setColor(colors[index]); // Set the color based on the current index
+        index = (index + 1) % colors.length; // Update the index for the next color
+      }
+    }, 500);
 
-useEffect(() => {
-  const interval = setInterval(() => {
-    if (stop) {
-      setColor(colors[index]); // Set the color based on the current index
-      index = (index + 1) % colors.length; // Update the index for the next color
-    }
-  }, 500);
+    return () => clearInterval(interval); // Clean up the interval
+  }, [stop]);
 
-  return () => clearInterval(interval); // Clean up the interval
-}, [stop]);
-  
+  // inicia emparejamiento y animacion
   const apretameC = () => {
     const shuffledPlayers = [...player].sort(() => Math.random() - 0.5);
     const newAssignments = {};
@@ -72,14 +74,13 @@ useEffect(() => {
       const match = shuffledPlayers[matchIndex];
       newAssignments[element.nombre] = match.nombre;
     });
-    setText('Emparejando...');
+    setText("Emparejando...");
     setAssignments(newAssignments);
     setStop(true);
-    
+
     const time = setTimeout(() => {
       setDisabled(true);
       setStop(false);
-      
     }, 5000);
     return () => clearTimeout(time);
   };
@@ -105,49 +106,15 @@ useEffect(() => {
       </div>
 
       {/* Render para animacion de amigo invisble  */}
-
-      <div className="flex flex-col  items-center ">
-        <h1 className="mt-2 font-serif text-3xl">Participantes</h1>
-        <div className="flex justify-center my-4">
-          {nombre.map((jugador, index) => (
-            <div
-              key={index}
-              className={`${disabled ? color : color}  rounded-2xl my-5 mx-2 p-2 max-w-max min-w-16 text-center text-white  shadow-outline shadow-2xl`}
-            >
-              <h2>{jugador}</h2>
-            </div>
-          ))}
-        </div>
-        <button
-          onClick={apretameC}
-          className={`${
-            disabled ? `hidden` : `cursor-pointer`
-          }  bg-slate-600 hover:scale-105 hover:bg-slate-400 shadow-black shadow-sm text-white max-w-max p-2 rounded-md`}
-        >
-          {text}
-        </button>
-        <div
-          className={`${
-            disabled ? `scale-1` : `scale-0`
-          } duration-700 bg-lime-400 max-w-fit min-w-72 text-center  my-5 rounded-xl shadow-xl`}
-        >
-          <h1 className="font-serif text-2xl font-bold pt-3">Parejas</h1>
-
-          {/* ARREGLAR EL KEY DE MATH RANDOM TO UUID */}
-          <div className="my-4">
-            {player.map((player) => (
-              <div key={player.id} className={`m-4`}>
-                <h2 className="font-semibold font-sans text-start">
-                  <em>Participante {player.id}</em> {player.nombre} Te toco a{" "}
-                  <span className="font-bold bg-yellow-400">
-                    {assignments[player.nombre] || "????"}
-                  </span>
-                </h2>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <PlayerRender
+        player={player}
+        assignments={assignments}
+        nombre={nombre}
+        disabled={disabled}
+        apretameC={apretameC}
+        text={text}
+        color={color}
+      />
     </>
   );
 };
