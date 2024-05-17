@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal } from "./modal";
 import { PlayerData } from "./PlayerData";
 
@@ -11,16 +11,10 @@ export const App = () => {
   const [ID, setID] = useState(0);
   const [nombre, setNombre] = useState([]);
 
-  //  ESTADO PARA EMPAREJAR
-  const [match, setMatch] = useState({});
-
   // ESTADO DE ACTIVACION DE LOGICA
 
   // ESTADO DE DESACTIVACION DE LOGICA
   const [disabled, setDisabled] = useState(false);
-
-  // ESTADO PARA CORROBORAR SI YA SALIO UN JUGADOR
-  const [salio, setSalio] = useState([]);
 
   // User_Input Asigna cantidad de jugadores.
   const modalForm = (e) => {
@@ -51,6 +45,24 @@ export const App = () => {
 
   const [assignments, setAssignments] = useState({});
 
+  // LOGICA PARA ANIMACION DE COLORES
+  const [text,setText] = useState('Click para emparejar');
+  const [color, setColor] = useState('bg-slate-600');
+const colors = ['bg-red-500', 'bg-blue-500']; // Define an array of colors
+let index = 0; // Initialize an index variable to keep track of the current color index
+const [stop, setStop] = useState(false); // State to control stopping the color change
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    if (stop) {
+      setColor(colors[index]); // Set the color based on the current index
+      index = (index + 1) % colors.length; // Update the index for the next color
+    }
+  }, 500);
+
+  return () => clearInterval(interval); // Clean up the interval
+}, [stop]);
+  
   const apretameC = () => {
     const shuffledPlayers = [...player].sort(() => Math.random() - 0.5);
     const newAssignments = {};
@@ -60,9 +72,16 @@ export const App = () => {
       const match = shuffledPlayers[matchIndex];
       newAssignments[element.nombre] = match.nombre;
     });
-
+    setText('Emparejando...');
     setAssignments(newAssignments);
-    setDisabled(true);
+    setStop(true);
+    
+    const time = setTimeout(() => {
+      setDisabled(true);
+      setStop(false);
+      
+    }, 5000);
+    return () => clearTimeout(time);
   };
 
   return (
@@ -85,7 +104,7 @@ export const App = () => {
         <PlayerData playerData={playerData} />
       </div>
 
-      {/* Render para animacion de amigo invisble logica */}
+      {/* Render para animacion de amigo invisble  */}
 
       <div className="flex flex-col  items-center ">
         <h1 className="mt-2 font-serif text-3xl">Participantes</h1>
@@ -93,7 +112,7 @@ export const App = () => {
           {nombre.map((jugador, index) => (
             <div
               key={index}
-              className="bg-white to-transparent rounded-2xl my-5 mx-2 p-2 max-w-max min-w-16 text-center text-black  shadow-outline shadow-2xl"
+              className={`${disabled ? color : color}  rounded-2xl my-5 mx-2 p-2 max-w-max min-w-16 text-center text-white  shadow-outline shadow-2xl`}
             >
               <h2>{jugador}</h2>
             </div>
@@ -105,7 +124,7 @@ export const App = () => {
             disabled ? `hidden` : `cursor-pointer`
           }  bg-slate-600 hover:scale-105 hover:bg-slate-400 shadow-black shadow-sm text-white max-w-max p-2 rounded-md`}
         >
-          Clickee para emparejar
+          {text}
         </button>
         <div
           className={`${
@@ -120,7 +139,9 @@ export const App = () => {
               <div key={player.id} className={`m-4`}>
                 <h2 className="font-semibold font-sans text-start">
                   <em>Participante {player.id}</em> {player.nombre} Te toco a{" "}
-                  <span className="font-bold bg-yellow-400">{assignments[player.nombre] || "????"}</span>
+                  <span className="font-bold bg-yellow-400">
+                    {assignments[player.nombre] || "????"}
+                  </span>
                 </h2>
               </div>
             ))}
