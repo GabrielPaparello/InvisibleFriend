@@ -48,10 +48,8 @@ input[type="number"] {
   left: 40vw;
 } */
 .paired {
-  left: 40vw;
   top: 30vh;
 }
 .not-paired {
-  left: -90vw;
-  top: 30vh;
+  top: -190vh;
 }
