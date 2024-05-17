@@ -37,8 +37,8 @@ const PlayerRender = ({
         </button>
         <div
           className={`${
-            disabled ? `scale-1` : `scale-0`
-          } duration-700 bg-lime-400 max-w-fit min-w-72 text-center  my-5 rounded-xl shadow-xl`}
+            disabled ? ` paired : ` : `not-paired`
+          } absolute duration-700 bg-lime-400 max-w-fit min-w-72 text-center  my-3 rounded-xl shadow-xl`}
         >
           <h1 className="font-serif text-2xl font-bold pt-3">Parejas</h1>
 

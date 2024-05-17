@@ -79,7 +79,7 @@ export const App = () => {
     const time = setTimeout(() => {
       setDisabled(true);
       setStop(false);
-    }, 5000);
+    }, 3000);
     return () => clearTimeout(time);
   };
 
@@ -87,7 +87,7 @@ export const App = () => {
     <>
       {/* Modal Cantidad Request + Animation */}
       <div
-        className={`modalContainer absolute w-full  transition-all  ease-out ${
+        className={` modalContainer absolute w-full  transition-all  ease-out ${
           cantidad ? `   -top-full` : `top-0`
         }`}
       >
@@ -97,7 +97,7 @@ export const App = () => {
       {/* Formulario de Usar Data */}
       <div className="flex flex-col items-center">
         <div
-          className={`  w-96  order-1  duration-1000${
+          className={` w-96  order-1 mt-5 duration-1000${
             cantidad ? ` scale-100` : `hidden scale-0`
           }  ${cantidad == player.length ? `hidden scale-0` : ``}`}
         >

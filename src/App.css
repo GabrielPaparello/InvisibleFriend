@@ -47,3 +47,11 @@ input[type="number"] {
   top: 45vh;
   left: 40vw;
 } */
+.paired {
+  left: 40vw;
+  top: 30vh;
+}
+.not-paired {
+  left: -40vw;
+  top: 30vh;
+}
