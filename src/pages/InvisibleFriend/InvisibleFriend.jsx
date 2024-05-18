@@ -3,7 +3,8 @@ import { Modal } from "./modal";
 import { PlayerData } from "./PlayerData";
 import PlayerRender from "./PlayerRender";
 import './InvisibleFriend.css'
-
+import { Nav } from "../../utils/Nav";
+import '../../utils/utils.css'
 export const InvisibleFriend = () => {
   // CANTIDAD DE JUGADORES
   const [cantidad, setCantidad] = useState();
@@ -91,6 +92,7 @@ export const InvisibleFriend = () => {
 
   return (
     <>
+      <Nav />
       {/* Modal Cantidad Request + Animation */}
       <div
         className={` modalContainer absolute w-full  transition-all  ease-out ${
@@ -120,7 +122,8 @@ export const InvisibleFriend = () => {
           text={text}
           color={color}
         />
-      </div>
+        </div>
+       
     </>
   );
 };

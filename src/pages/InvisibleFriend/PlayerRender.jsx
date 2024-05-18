@@ -14,7 +14,7 @@ const PlayerRender = ({
       {/* Render para animacion de amigo invisble  */}
 
       <div className="flex flex-col  items-center ">
-        <h1 className="mt-2 font-serif text-3xl">Participantes</h1>
+        <h1 className="mt-10 font-serif text-3xl">Participantes</h1>
         <div className="flex justify-center my-4">
           {nombre.map((jugador, index) => (
             <div
