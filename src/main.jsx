@@ -1,13 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import {  ModalPrompt } from './ModalPrompt'
 import './App.css'
-import { App } from './app'
+import { InvisibleFriend } from './pages/InvisibleFriend/InvisibleFriend'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <ModalPrompt /> */}
-    <App />
+    <InvisibleFriend />
   </React.StrictMode>,
 )

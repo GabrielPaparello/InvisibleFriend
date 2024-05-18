@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { Modal } from "./modal";
 import { PlayerData } from "./PlayerData";
 import PlayerRender from "./PlayerRender";
+import './InvisibleFriend.css'
 
-export const App = () => {
+export const InvisibleFriend = () => {
   // CANTIDAD DE JUGADORES
   const [cantidad, setCantidad] = useState();
   
