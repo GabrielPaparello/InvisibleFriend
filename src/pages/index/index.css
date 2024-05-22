@@ -1,0 +1,17 @@
+.text-img {
+  top: 60vh;
+  left: 43vw;
+}
+
+.yellowBg {
+  background-color: #ffd02f;
+}
+
+.greyFont {
+  color: #605a5a;
+}
+
+.scale:hover {
+  padding-left: 100px;
+  transform: scale(180%);
+}
