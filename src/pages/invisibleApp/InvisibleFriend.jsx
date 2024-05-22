@@ -96,7 +96,7 @@ export const InvisibleFriend = () => {
       {/* Modal Cantidad Request + Animation */}
       <div
         className={` modalContainer absolute w-full  transition-all  ease-out ${
-          cantidad ? `   -top-full` : `top-0`
+          cantidad ? `   -top-full scale-0` : `top-0`
         }`}
       >
         <Modal modalForm={modalForm} />

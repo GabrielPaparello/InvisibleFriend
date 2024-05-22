@@ -1,5 +1,9 @@
+import { Nav } from "../../utils/Nav";
+
 export const Modal = ({ modalForm }) => {
   return (
+    <>
+      <Nav />
     <div className="bg-slate-600 h-screen w-full flex flex-col items-center">
       <div>
         <h1 className="text-3xl font-sans font-bold text-white tracking-wide text-center pt-10 ">
@@ -26,6 +30,7 @@ export const Modal = ({ modalForm }) => {
           ></input>
         </form>
       </div>
-    </div>
+      </div>
+      </>
   );
 };
