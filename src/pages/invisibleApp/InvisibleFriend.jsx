@@ -8,6 +8,8 @@ import '../../utils/utils.css'
 export const InvisibleFriend = () => {
   // CANTIDAD DE JUGADORES
   const [cantidad, setCantidad] = useState();
+  // REGLAS DE JUGADORES
+  const [rules, setRules] = useState('');
   
   // REFACTORIZAR
   let [player, setPlayer] = useState([]);
@@ -31,6 +33,7 @@ export const InvisibleFriend = () => {
   const modalForm = (e) => {
     e.preventDefault();
     setCantidad(parseInt(e.target.elements.cantidad.value));
+    setRules(parseInt(e.target.elements.rules.value));
     e.target.reset();
   };
 

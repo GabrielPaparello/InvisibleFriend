@@ -32,3 +32,14 @@
 .underline {
   content: "";
 }
+
+.violetBg {
+  background-color: #7643cc;
+}
+
+.blackModalBg {
+  background-color: #2d2c2c;
+}
+.grayText {
+  color: #6a6262;
+}
