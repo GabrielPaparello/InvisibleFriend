@@ -5,8 +5,8 @@ export const SubNav = ({ showSubNav,handleNavClick }) => {
   return (
     <>
       <div
-        className={`absolute p-5 m-2 duration-500 ${
-          showSubNav ? "-left-20   bg-gray-800 " : "left-64 "
+        className={`absolute  p-5 m-2 duration-500 ${
+          showSubNav ? "-left-20   bg-gray-800 " : "left-64 scale-0"
         }`}
       >
               <nav className="">

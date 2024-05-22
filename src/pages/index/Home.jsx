@@ -9,7 +9,7 @@ export const Home = () => {
       <Nav />
           <h1 className="text-3xl my-14 font-sans font-bold text-center text-white ">Pick & chose your app</h1>
       <div className=" grid auto-cols-auto  justify-items-start">
-        <div className="flex flex-row items-end">
+        <div className="flex flex-col items-center md:flex-row flex-wrap gap-7 ml-10">
           <AppsRender SecretSanta={SecretSanta} />
 
         </div>

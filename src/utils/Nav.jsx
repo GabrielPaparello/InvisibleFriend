@@ -22,9 +22,9 @@ export const Nav = () => {
 
   return (
     <>
-      <nav className=" shadow-sm shadow-current  bg-black">
+      <nav className=" shadow-sm shadow-current mx-10 bg-black">
         
-        <ul className="flex flex-row justify-between mx-7 py-7 font-thin tracking-wider">
+        <ul className="flex flex-row justify-between items-center py-7 font-thin tracking-wider">
           
           {nav.map((navLinks) => (
             <li
@@ -32,7 +32,7 @@ export const Nav = () => {
               key={navLinks.link}
             >
               {navLinks.link === "Home" && 
-                <HomeIcon className=" yellow h-7 inline align-top  "/>
+                <HomeIcon className=" yellow h-7 ml-4 inline align-top  "/>
               }
               <a href={navLinks.href}>{navLinks.link}</a>
               {navLinks.link === "Apps" && 
