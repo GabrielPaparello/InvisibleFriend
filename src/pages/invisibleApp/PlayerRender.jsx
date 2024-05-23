@@ -30,7 +30,7 @@ const PlayerRender = ({
         <button
           onClick={apretameC}
           className={`${
-            disabled ? `hidden` : `cursor-pointer`
+            disabled ? `hidden` : `block`
           }  bg-slate-600 hover:scale-105 hover:bg-slate-400 shadow-black shadow-sm text-white max-w-max p-2 rounded-md`}
         >
           {text}

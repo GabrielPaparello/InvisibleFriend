@@ -27,9 +27,10 @@ export const Modal = ({ modalForm }) => {
             ¿Cuantos participan?
           </h2>
           <input
-            className="mt-4 text-center w-50 border-2 shadow-md shadow-black  rounded-md "
+            className="mt-4  text-center w-50 border-2 shadow-md shadow-black  rounded-md "
             type="number"
-            name="cantidad"
+              name="cantidad"
+              required
             />
             <h3 className="grayText text-sm font-sans font-bold  tracking-wide m-2 mb-5">Inserte cantidad de jugadores</h3>
           <input

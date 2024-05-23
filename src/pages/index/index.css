@@ -12,6 +12,6 @@
 }
 
 .scale:hover {
-  padding-left: 100px;
-  transform: scale(180%);
+  /* padding-left: 100px; */
+  transform: scale(120%);
 }
