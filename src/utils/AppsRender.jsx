@@ -7,7 +7,7 @@ export const AppsRender = ({ SecretSanta }) => {
         <h2 className=" text-white font-serif text-3xl tracking-wide text-center">
           Secret Santa
         </h2>
-      <div className="rounded-xl    border-gray-950 shadow-md shadow-gray-950 ">
+      <div className="rounded-xl    border-gray-950 border-y-2 shadow-md shadow-gray-950 ">
         <img
           className=" h-96 min-w-96 scale duration-500 cursor-pointer bg-current rounded-xl"
           src={SecretSanta}
