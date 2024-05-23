@@ -5,14 +5,14 @@ export const PlayerData = ({ playerData }) => {
         onSubmit={(e) => playerData(e)}
         className="blackModalBg  shadow-black  shadow-md text-center flex flex-col gap-4 justify-start rounded-2xl"
       >
-        <h2 className="text-xl -ml-4 mt-5 font-bold tracking-wide font-sans text-slate-50">
+        <h2 className="text-xl md:text-2xl -ml-4 mt-5 font-bold tracking-wide font-sans text-slate-50">
           Datos del Participante
         </h2>
-        <h2 className="text-md font-sans  font-semibold text-white text-start pl-6 ">
+        <h2 className="text-md md:text-lg font-sans  font-semibold text-white text-start pl-6 ">
           Nombre
         </h2>
         <textarea
-          className="resize-none mx-7 text-sm  h-10 rounded-md p-2 border-2 border-current hover:border-black "
+          className="resize-none mx-7 text-sm md:text-md  h-10 rounded-md p-2 border-2 border-current hover:border-black "
           name="nombre"
           id=""
           cols="20"
@@ -21,12 +21,12 @@ export const PlayerData = ({ playerData }) => {
           autoComplete="on"
           required
         ></textarea>
-        <h2 className="text-md font-sans font-semibold text-white text-start pl-6 ">
+        <h2 className="text-md md:text-lg font-sans font-semibold text-white text-start pl-6 ">
           Email
         </h2>
         <textarea
           name="email"
-          className="resize-none mx-7 p-2 h-10 rounded-md  border-2  border-slate-500 hover:border-slate-300 text-sm"
+          className="resize-none mx-7 p-2 h-10 rounded-md  border-2  border-slate-500 hover:border-slate-300 text-sm md:text-md"
           id=""
           cols="20"
           rows="1"
