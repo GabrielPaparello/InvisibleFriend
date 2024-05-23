@@ -4,7 +4,7 @@ export const Modal = ({ modalForm }) => {
   return (
     <>
       <Nav />
-    <div className="-mt-4 h-screen w-full  flex flex-col items-center">
+    <div className="-mt-4 xs:h-screen w-full  flex flex-col items-center">
     <div className=" px-10  flex flex-col items-center">
       
         <h1 className="text-2xl md:text-4xl font-sans font-bold text-white tracking-wide text-center pt-10 ">
