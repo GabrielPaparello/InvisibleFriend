@@ -11,7 +11,7 @@ export const Modal = ({ modalForm }) => {
           Secret Santa
         </h1>
       </div>
-      <div className="m-10 px-10 py-7 blackModalBg rounded-3xl">
+      <div className="m-10 px-6 py-7 blackModalBg rounded-3xl">
         <form
           onSubmit={modalForm}
           className="formSettings flex flex-col justify-center text-center items-center "
