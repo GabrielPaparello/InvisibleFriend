@@ -12,7 +12,7 @@ export const Home = () => {
         <div className="flex flex-col items-center md:flex-row  flex-wrap gap-7">
           <AppsRender SecretSanta={SecretSanta} />
         </div>
-              <h3 className="xs:hidden m-2 mr-96 text-xs greyFont">Toque para hacer zoom</h3>
+              <h3 className="hidden md:block m-2 mr-96 text-xs greyFont ">Toque para hacer zoom</h3>
 
       </div>
     </>
