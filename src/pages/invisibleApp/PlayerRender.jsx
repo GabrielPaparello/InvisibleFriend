@@ -48,7 +48,7 @@ const PlayerRender = ({
           <div className=" p-2">
             {player.map((player) => (
               <div key={player.ID} className={`m-4`}>
-                <h2 className="font-semibold text-2xl font-sans text-white text-start">
+                <h2 className="font-semibold pb-2 text-2xl font-sans text-white text-start">
                   <span className="font-semibold tracking-wide text-2xl">Participante </span> <span className="font-bold text-yellow-400 text-2xl">{player.nombre}</span> Te toco a{" "}
                   <span className="font-bold text-2xl text-yellow-400">
                     {assignments[player.nombre] || "????"}
