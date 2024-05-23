@@ -108,7 +108,7 @@ export const InvisibleFriend = () => {
       {/* Formulario de Usar Data */}
       <div className="flex flex-col items-center">
         <div
-          className={` w-96  order-1 mt-5 duration-1000${
+          className={` w-80   order-1 mt-5 duration-1000${
             cantidad ? ` scale-100` : `hidden scale-0`
           }  ${cantidad == player.length ? `hidden scale-0` : ``}`}
         >
