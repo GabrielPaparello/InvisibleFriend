@@ -33,7 +33,7 @@ export const Modal = ({ modalForm }) => {
             type="text"
               name="rules"
               placeholder="   Inserte las reglas"
-              cols="33"
+              cols="30"
               rows="2"
             />
             <h3 className="grayText text-xs font-sans font-bold  tracking-wide m-1">Configure parametros</h3>
