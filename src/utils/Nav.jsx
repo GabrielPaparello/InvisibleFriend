@@ -28,7 +28,7 @@ export const Nav = () => {
           
           {nav.map((navLinks) => (
             <li
-              className="font-sans text-2xl font-semibold text-center text-white hover-underline-animation"
+              className="font-sans text-xl font-semibold text-center text-white hover-underline-animation"
               key={navLinks.link}
             >
               {navLinks.link === "Home" && 
