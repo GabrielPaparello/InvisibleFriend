@@ -22,7 +22,7 @@ export const Nav = () => {
 
   return (
     <>
-      <nav className=" shadow-sm shadow-current mx-10 bg-black">
+      <nav className="  mx-10 ">
         
         <ul className="flex flex-row justify-between items-center py-7 font-thin tracking-wider">
           

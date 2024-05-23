@@ -25,7 +25,7 @@ export const InvisibleFriend = () => {
   
   // LOGICA PARA ANIMACION DE COLORES
   const [text, setText] = useState("Click para emparejar");
-  const [color, setColor] = useState("bg-slate-600");
+  const [color, setColor] = useState("yellowBg");
   const [stop, setStop] = useState(false); 
 
   
@@ -57,7 +57,7 @@ export const InvisibleFriend = () => {
   };
   // LOGICA PARA ANIMACION DE COLORES
 
-  const colors = ["bg-red-500", "bg-blue-500"]; 
+  const colors = ["blackModalBg text-white", "yellowBg text-black"]; 
   let index = 0; 
 
   // simula Carga ==> animacion de emparejamiento
@@ -112,7 +112,7 @@ export const InvisibleFriend = () => {
             cantidad ? ` scale-100` : `hidden scale-0`
           }  ${cantidad == player.length ? `hidden scale-0` : ``}`}
         >
-          <PlayerData playerData={playerData} />
+          <PlayerData cantidad={cantidad} playerData={playerData} />
         </div>
 
         {/* Render para animacion de amigo invisble  */}

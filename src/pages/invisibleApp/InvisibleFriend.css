@@ -44,3 +44,7 @@ input[type="number"] {
 .not-paired {
   top: -250vh;
 }
+
+.heightModal {
+  height: 60vh;
+}
