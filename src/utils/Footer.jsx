@@ -48,7 +48,7 @@ export const Footer = () => {
     <>
       <div className="d pt-1">
         <h3   className="text-center   footerGray ">Information</h3>
-      <div className="flex list-none flex-row  ml-28 justify-around mt-4 ">
+      <div className="flex list-none flex-row justify-around mt-4 ">
         <div className="flex flex-col items-start mt-4 grayText">
           {footer.map((footerLinks) => (
               <li key={footerLinks.link}>
