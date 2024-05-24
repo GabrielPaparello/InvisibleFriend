@@ -22,6 +22,7 @@ export const Nav = () => {
 
   return (
     <>
+      <div className="d">
       <nav className="  mx-10 ">
         
         <ul className="flex flex-row justify-between items-center py-7 font-thin tracking-wider">
@@ -46,6 +47,7 @@ export const Nav = () => {
           ))}
         </ul>
       </nav>
-    </>
+          </div>
+      </>
   );
 };

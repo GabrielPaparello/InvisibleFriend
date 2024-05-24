@@ -19,11 +19,11 @@ export const AppsRender = ({ SecretSanta }) => {
         <h2 className="hidden lg:block text-white font-serif text-3xl tracking-wide">
           Amigo Invisible
         </h2>
-        <button className="my-6 border-2 text-sm border-current  yellowBg p-1  tracking-wide  font-bold rounded-md  hover:scale-110  hover:text-black  cursor-pointer  text-black shadow-md shadow-gray-950">
+        <button className="my-6 border-2 text-sm border-current  yellowBg p-1  tracking-wide  font-bold rounded-md duration-300  hover:scale-125  hover:text-black  cursor-pointer  text-black shadow-md shadow-gray-950">
           <Link to="/InvisibleFriend">Click para Iniciar</Link>
         </button>
         <h3 className=" greyFont  text-xs text-white -my-4">
-          Configure your settings and start
+          Configure su aplicacíon para jugar
         </h3>
       </div>
     </>

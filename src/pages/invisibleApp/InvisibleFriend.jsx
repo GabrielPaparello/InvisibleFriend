@@ -5,6 +5,7 @@ import PlayerRender from "./PlayerRender";
 import './InvisibleFriend.css'
 import { Nav } from "../../utils/Nav";
 import '../../utils/utils.css'
+import { Footer } from "../../utils/Footer";
 export const InvisibleFriend = () => {
   // CANTIDAD DE JUGADORES
   const [cantidad, setCantidad] = useState();
@@ -57,7 +58,7 @@ export const InvisibleFriend = () => {
   };
   // LOGICA PARA ANIMACION DE COLORES
 
-  const colors = ["blackModalBg text-white", "yellowBg text-black"]; 
+  const colors = ["animation1 text-white", "animation2 text-black"]; 
   let index = 0; 
 
   // simula Carga ==> animacion de emparejamiento
@@ -67,7 +68,7 @@ export const InvisibleFriend = () => {
         setColor(colors[index]); 
         index = (index + 1) % colors.length; 
       }
-    }, 500);
+    }, 600);
 
     return () => clearInterval(interval); 
   }, [stop]);
@@ -113,7 +114,9 @@ export const InvisibleFriend = () => {
           }  ${cantidad == player.length ? `hidden scale-0` : ``}`}
         >
           <PlayerData cantidad={cantidad} playerData={playerData} />
+          
         </div>
+
 
         {/* Render para animacion de amigo invisble  */}
         <PlayerRender
@@ -125,8 +128,7 @@ export const InvisibleFriend = () => {
           text={text}
           color={color}
         />
-        </div>
-       
+      </div>
     </>
   );
 };

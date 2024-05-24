@@ -10,3 +10,7 @@
 body {
   background-color: #1a1a1a;
 }
+
+.d {
+  background-color: hsl(0, 0%, 11.2%);
+}

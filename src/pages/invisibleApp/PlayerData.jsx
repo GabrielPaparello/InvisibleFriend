@@ -1,3 +1,5 @@
+import { Footer } from "../../utils/Footer";
+
 export const PlayerData = ({ playerData }) => {
   return (
     <>
@@ -39,6 +41,7 @@ export const PlayerData = ({ playerData }) => {
           value="Enviar"
         />
       </form>
+      
     </>
   );
 };

@@ -1,17 +1,18 @@
+import { Footer } from "../../utils/Footer";
 import { Nav } from "../../utils/Nav";
 
 export const Modal = ({ modalForm }) => {
   return (
     <>
       <Nav />
-    <div className="-mt-4 xs:h-screen w-full  flex flex-col items-center">
+    <div className="-mt-4 xs:h-screen  w-full  flex flex-col items-center">
     <div className=" px-10  flex flex-col items-center">
       
         <h1 className="text-2xl md:text-4xl font-sans font-bold text-white tracking-wide text-center pt-10 ">
           Amigo Invisible
         </h1>
       </div>
-      <div className="m-10 px-6 py-7 md:w-96 blackModalBg rounded-3xl">
+      <div className="m-10  px-6 py-7  md:w-96 blackModalBg rounded-3xl">
         <form
           onSubmit={modalForm}
           className="formSettings flex flex-col justify-center text-center items-center "
@@ -47,6 +48,7 @@ export const Modal = ({ modalForm }) => {
         </form>
       </div>
       </div>
+      
       
       </>
   );
