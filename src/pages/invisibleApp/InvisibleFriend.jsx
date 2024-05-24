@@ -2,34 +2,32 @@ import { useEffect, useState } from "react";
 import { Modal } from "./modal";
 import { PlayerData } from "./PlayerData";
 import PlayerRender from "./PlayerRender";
-import './InvisibleFriend.css'
+import "./InvisibleFriend.css";
 import { Nav } from "../../utils/Nav";
-import '../../utils/utils.css'
-import { Footer } from "../../utils/Footer";
+import "../../utils/utils.css";
 export const InvisibleFriend = () => {
   // CANTIDAD DE JUGADORES
   const [cantidad, setCantidad] = useState();
   // REGLAS DE JUGADORES
-  const [rules, setRules] = useState('');
-  
+  const [rules, setRules] = useState("");
+
   // REFACTORIZAR
   let [player, setPlayer] = useState([]);
   const [ID, setID] = useState(0);
   const [nombre, setNombre] = useState([]);
-  
+
   // ESTADO DE DESACTIVACION DE LOGICA
   const [disabled, setDisabled] = useState(false);
-  
+
   // LOGICA DE EMPAREJAMIENTO
-  
+
   const [assignments, setAssignments] = useState({});
-  
+
   // LOGICA PARA ANIMACION DE COLORES
   const [text, setText] = useState("Click para emparejar");
   const [color, setColor] = useState("yellowBg");
-  const [stop, setStop] = useState(false); 
+  const [stop, setStop] = useState(false);
 
-  
   // User_Input Asigna cantidad de jugadores.
   const modalForm = (e) => {
     e.preventDefault();
@@ -58,19 +56,19 @@ export const InvisibleFriend = () => {
   };
   // LOGICA PARA ANIMACION DE COLORES
 
-  const colors = ["animation1 text-white", "animation2 text-black"]; 
-  let index = 0; 
+  const colors = ["animation1 text-white", "animation2 text-black"];
+  let index = 0;
 
   // simula Carga ==> animacion de emparejamiento
   useEffect(() => {
     const interval = setInterval(() => {
       if (stop) {
-        setColor(colors[index]); 
-        index = (index + 1) % colors.length; 
+        setColor(colors[index]);
+        index = (index + 1) % colors.length;
       }
     }, 600);
 
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval);
   }, [stop]);
 
   // inicia emparejamiento y animacion
@@ -114,9 +112,7 @@ export const InvisibleFriend = () => {
           }  ${cantidad == player.length ? `hidden scale-0` : ``}`}
         >
           <PlayerData cantidad={cantidad} playerData={playerData} />
-          
         </div>
-
 
         {/* Render para animacion de amigo invisble  */}
         <PlayerRender

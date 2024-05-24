@@ -1,5 +1,3 @@
-import React from "react";
-
 const PlayerRender = ({
   player,
   assignments,
@@ -36,9 +34,7 @@ const PlayerRender = ({
         </div>
         <button
           onClick={apretameC}
-          className={`${
-            nombre[0] == undefined ? `hidden` : ``
-          }${
+          className={`${nombre[0] == undefined ? `hidden` : ``}${
             disabled ? `hidden` : ``
           }  violetBg text-lg m-2 p-2 font-sans font-semibold hover:scale-110 hover:bg-violet-400 shadow-black shadow-md text-white max-w-max rounded-md hover:text-violet-900`}
         >

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 export const AppsRender = ({ SecretSanta }) => {
@@ -14,7 +13,9 @@ export const AppsRender = ({ SecretSanta }) => {
           alt="Meta Img Invisible App"
         />
       </div>
-      <h3 className="mx-4 -m-6 md:hidden text-xs greyFont">Toque para hacer zoom</h3>
+      <h3 className="mx-4 -m-6 md:hidden text-xs greyFont">
+        Toque para hacer zoom
+      </h3>
       <div className="flex flex-col flex-wrap">
         <h2 className="hidden lg:block text-white font-serif text-3xl tracking-wide">
           Amigo Invisible

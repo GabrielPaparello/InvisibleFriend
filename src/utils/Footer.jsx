@@ -1,4 +1,3 @@
-import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
@@ -12,83 +11,81 @@ export const Footer = () => {
   const footer = [
     {
       link: "About me",
-          href: "#",
-      icon:'about',
+      href: "#",
+      icon: "about",
     },
     {
       link: "Privacy",
-        href: "#",
-      icon:'privacy',
+      href: "#",
+      icon: "privacy",
     },
     {
       link: "Contact",
-        href: "#",
-      icon:'contact',
+      href: "#",
+      icon: "contact",
     },
   ];
 
   const footer2 = [
     {
       link: "Git hub",
-          href: "#",
-      icon: 'git',
+      href: "#",
+      icon: "git",
     },
     {
       link: "Linked in",
-        href: "#",
-      icon:'link',
+      href: "#",
+      icon: "link",
     },
     {
       link: "Apps@contract@mail.com",
-        href: "#",
-      icon:'mail',
+      href: "#",
+      icon: "mail",
     },
   ];
   return (
     <>
       <div className="d pt-1">
-        <h3   className="text-center   footerGray ">Information</h3>
-      <div className="flex list-none flex-row justify-around mt-4 ">
-        <div className="flex flex-col items-start mt-4 grayText">
-          {footer.map((footerLinks) => (
+        <h3 className="text-center   footerGray ">Information</h3>
+        <div className="flex list-none flex-row justify-around mt-4 ">
+          <div className="flex flex-col items-start mt-4 grayText">
+            {footer.map((footerLinks) => (
               <li key={footerLinks.link}>
-                  {footerLinks.icon === "about" && 
-                          <FontAwesomeIcon icon={faUser} className="mr-2"/>
+                {footerLinks.icon === "about" && (
+                  <FontAwesomeIcon icon={faUser} className="mr-2" />
+                )}
+                {footerLinks.icon === "privacy" && (
+                  <FontAwesomeIcon icon={faCircleInfo} className="mr-2" />
+                )}
+                {footerLinks.icon === "contact" && (
+                  <FontAwesomeIcon icon={faSquarePhone} className="mr-2" />
+                )}
+                <Link to={footerLinks.href}>{footerLinks.link}</Link>{" "}
+              </li>
+            ))}
+          </div>
 
-                  }
-                  {footerLinks.icon === "privacy" && 
-                          <FontAwesomeIcon icon={faCircleInfo} className="mr-2"/>
-
-                  }
-                  {footerLinks.icon === "contact" && 
-                          <FontAwesomeIcon icon={faSquarePhone} className="mr-2"/>
-
-                }
-              <Link to={footerLinks.href}>{footerLinks.link}</Link>{" "}
-            </li>
-          ))}
+          <div className="flex flex-col items-start mt-4 grayText ">
+            {footer2.map((footerLinks) => (
+              <li key={footerLinks.link}>
+                {footerLinks.icon === "link" && (
+                  <FontAwesomeIcon icon={faLinkedin} className="mr-2" />
+                )}
+                {footerLinks.icon === "git" && (
+                  <FontAwesomeIcon icon={faGithub} className="mr-2" />
+                )}
+                {footerLinks.icon === "mail" && (
+                  <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
+                )}
+                <Link to={footerLinks.href}>{footerLinks.link}</Link>{" "}
+              </li>
+            ))}
+          </div>
         </div>
-
-      <div className="flex flex-col items-start mt-4 grayText ">
-        {footer2.map((footerLinks) => (
-            <li  key={footerLinks.link}>
-                {footerLinks.icon === "link" && 
-                          <FontAwesomeIcon icon={faLinkedin} className="mr-2"/>
-
-                }
-                {footerLinks.icon === "git" &&
-                    <FontAwesomeIcon icon={faGithub} className="mr-2"/>
-                }
-                {footerLinks.icon === "mail" &&
-                    <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-                }
-            <Link to={footerLinks.href}>{footerLinks.link}</Link>{" "}
-          </li>
-        ))}
+        <h3 className="text-center mt-5 footerGray ">
+          Copyright {new Date().getFullYear()}
+        </h3>
       </div>
-          </div>
-          <h3 className="text-center mt-5 footerGray ">Copyright {new Date().getFullYear()}</h3>
-          </div>
     </>
   );
 };
