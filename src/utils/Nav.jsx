@@ -33,7 +33,7 @@ export const Nav = () => {
               key={navLinks.link}
             >
               {navLinks.link === "Home" && 
-                <HomeIcon className=" yellow h-7 ml-4 inline align-top  "/>
+                <HomeIcon className=" yellow h-7 ml-0 inline align-top  "/>
               }
               <a href={navLinks.href}>{navLinks.link}</a>
               {navLinks.link === "Apps" && 
