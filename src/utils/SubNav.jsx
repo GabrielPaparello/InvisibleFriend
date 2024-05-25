@@ -26,7 +26,8 @@ export const SubNav = ({ showSubNav, handleNavClick }) => {
               <div className="w-36  mt-3 border-gray-950  border-2"></div>
             </li>
             <li>
-              <a>Secret 2</a>
+              <Link to="/NumberAsigner">Asignador</Link>
+
               <UserIcon className="mx-2 h-7 inline align-top yellow" />
               <div className="w-36  mt-3 border-gray-950  border-2"></div>
             </li>

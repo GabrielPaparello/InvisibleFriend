@@ -12,7 +12,7 @@ export const Home = () => {
         Elija su aplicacíon
       </h1>
       <div className=" grid auto-cols-2  justify-items-center md:justify-items-center">
-        <div className="flex flex-col items-center md:flex-row  flex-wrap gap-7">
+        <div className="flex flex-col items-center xl:flex-row  flex-wrap gap-7">
           <AppsRender AppImg={NumberAsigner} AppName={"Asignador"} AppLink={"/NumberAsigner"} AppDescription={'De un número o posicion a cada Participante, mediante cantidad de participantes y cantidad de puestos disponibles.'} />
           <AppsRender AppImg={SecretSanta} AppName={"Amigo invisible"} AppLink={"/InvisibleFriend"} AppDescription={'Amigo invisible asigna cada participante con otro aleatoriamente'}/>
         </div>
