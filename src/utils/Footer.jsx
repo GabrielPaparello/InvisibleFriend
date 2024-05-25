@@ -46,9 +46,9 @@ export const Footer = () => {
   return (
     <>
       <div className="d pt-1">
-        <h3 className="text-center   footerGray ">Information</h3>
+        <h3 className="text-center text-sm   footerGray ">Information</h3>
         <div className="flex list-none flex-row justify-around mt-4 ">
-          <div className="flex flex-col items-start mt-4 grayText">
+          <div className="flex flex-col items-start mt-4 text-xs grayText">
             {footer.map((footerLinks) => (
               <li key={footerLinks.link}>
                 {footerLinks.icon === "about" && (
@@ -65,7 +65,7 @@ export const Footer = () => {
             ))}
           </div>
 
-          <div className="flex flex-col items-start mt-4 grayText ">
+          <div className="flex flex-col items-start mt-4 text-xs grayText ">
             {footer2.map((footerLinks) => (
               <li key={footerLinks.link}>
                 {footerLinks.icon === "link" && (
@@ -82,7 +82,7 @@ export const Footer = () => {
             ))}
           </div>
         </div>
-        <h3 className="text-center mt-5 footerGray ">
+        <h3 className="text-center mt-5 text-sm footerGray ">
           Copyright {new Date().getFullYear()}
         </h3>
       </div>

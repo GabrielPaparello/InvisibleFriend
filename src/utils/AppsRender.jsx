@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const AppsRender = ({ AppImg ,AppName,AppLink}) => {
+export const AppsRender = ({ AppImg ,AppName,AppLink ,AppDescription}) => {
   return (
     <>
       <h2 className="md:hidden text-white font-serif text-xl tracking-wide text-center">
@@ -19,6 +19,9 @@ export const AppsRender = ({ AppImg ,AppName,AppLink}) => {
       <div className="flex flex-col flex-wrap">
         <h2 className="hidden lg:block text-white font-serif text-3xl tracking-wide">
           {AppName}
+        </h2>
+        <h2 className="hidden lg:block text-white font-serif text-sm text-wrap max-w-xs tracking-wide">
+          {AppDescription}
         </h2>
         <button className="my-6 border-2 text-sm border-current  yellowBg p-1  tracking-wide  font-bold rounded-md duration-300  hover:scale-125  hover:text-black  cursor-pointer  text-black shadow-md shadow-gray-950">
           <Link to={AppLink}>Click para Iniciar</Link>
