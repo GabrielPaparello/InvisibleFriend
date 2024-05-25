@@ -3,14 +3,13 @@ import { Modal } from "./modal";
 import { PlayerData } from "./PlayerData";
 import PlayerRender from "./PlayerRender";
 import "./InvisibleFriend.css";
-import { Nav } from "../../utils/Nav";
-import "../../utils/utils.css";
-// import emailjs from '@emailjs/browser';
-export const InvisibleFriend = () => {
+import "../../../utils/utils.css";
+import { Nav } from "../../../utils/Nav";
+export const NumberAsigner = () => {
   // CANTIDAD DE JUGADORES
   const [cantidad, setCantidad] = useState();
   // REGLAS DE JUGADORES
-  const [rules, setRules] = useState("");
+  const [rules, setRules] = useState();
 
   // REFACTORIZAR
   let [player, setPlayer] = useState([]);
@@ -45,7 +44,6 @@ export const InvisibleFriend = () => {
     const jugador = {
       ID: ID,
       nombre: e.target.nombre.value,
-      email: e.target.email.value,
     };
     setPlayer((player) => {
       return [...player, jugador];
@@ -78,9 +76,12 @@ export const InvisibleFriend = () => {
     const newAssignments = {};
 
     shuffledPlayers.forEach((element, index) => {
+      let array = Array.from({ length: rules }, (_, i) => i + 1);
+      const numberIndex = (index + 1) % array.length;
       const matchIndex = (index + 1) % shuffledPlayers.length;
       const match = shuffledPlayers[matchIndex];
-      newAssignments[element.nombre] = match.nombre;
+      newAssignments[match.nombre] = array[numberIndex];
+
     });
     setText("Emparejando...");
     setAssignments(newAssignments);
@@ -94,31 +95,7 @@ export const InvisibleFriend = () => {
    
   };
 
-  // LOGICA PARA ENVIAR MAIL
-
-  // useEffect(() => {
-    
-  //   const sendEmail = () => {
-      
-  //     player.map((element) => {
-  //       const templateParams = {
-  //         to_email: element.email,
-  //         from_name: element.nombre,
-  //         message: `Tu amigo invisible es ${assignments[element.nombre]}`,
-  //       };
-  //       emailjs.send('service_v4znwzs', 'template_gb0wibc', templateParams)
-  //         .then((response) => {
-  //           console.log('SUCCESS!', response.status, response.text);
-  //         }, (error) => {
-  //           console.log('FAILED...', error);
-  //         });
-  //     })
-      
-      
   
-  //   };
-  // },[apretameC])
-  // 
 
 
   return (

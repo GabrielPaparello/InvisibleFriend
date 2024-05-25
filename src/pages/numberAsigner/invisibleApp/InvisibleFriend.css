@@ -1,0 +1,50 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.transform {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: 90px;
+  /* background-color: #ccc; */
+  border: 1px solid #000;
+  padding: 20px;
+  transform: translateY(calc(90% * var(--index)));
+}
+
+.initial {
+  display: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* CONTROLA LA VELOCIDAD DE LA ANIMACION DEL MODAL REFACTORIZADO */
+.modalContainer {
+  transition-duration: 1500ms;
+}
+
+/* .formSettings {
+  position: absolute;
+  top: 45vh;
+  left: 40vw;
+} */
+.paired {
+  top: 50vh;
+}
+.not-paired {
+  top: -250vh;
+}
+
+.heightModal {
+  height: 60vh;
+}
