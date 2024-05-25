@@ -23,11 +23,11 @@ export const AppsRender = ({ AppImg, AppName, AppLink, AppDescription }) => {
         <h2 className="hidden lg:block text-white font-serif text-sm md:mt-6 md:w-52 text-wrap  tracking-wide">
           {AppDescription}
         </h2>
-        <button className="my-6 border-2 text-sm border-current  yellowBg p-1  tracking-wide  font-bold rounded-md duration-300  hover:scale-125  hover:text-black  cursor-pointer  text-black shadow-md shadow-gray-950">
+        <button className="my-6 border-2 text-sm border-current   yellowBg p-1  tracking-wide  font-bold rounded-md duration-300  hover:scale-125  hover:text-black  cursor-pointer  text-black shadow-md shadow-gray-950">
           <Link to={AppLink}>Click para Iniciar</Link>
         </button>
-        <h3 className=" greyFont  text-xs text-white -my-4 md:my-2">
-          Configure su aplicacíon para jugar
+        <h3 className=" greyFont  text-xs  text-white -my-5 md:my-2 pl-2">
+          Configure para jugar
         </h3>
       </div>
     </>

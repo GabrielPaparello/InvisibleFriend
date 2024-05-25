@@ -15,7 +15,6 @@ export const Nav = () => {
     },
     {
       link: "Apps",
-      href: "#apps",
     },
   ];
 

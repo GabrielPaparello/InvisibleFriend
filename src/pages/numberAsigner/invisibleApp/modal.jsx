@@ -19,7 +19,7 @@ export const Modal = ({ modalForm }) => {
               ¿Cuantos participan?
             </h2>
             <input
-              className="mt-4 h-7 text-center w-52 md:w-56 border-2 text-sm md:text-md shadow-md shadow-black rounded-md "
+              className="mt-4 h-7 text-center w-52 md:w-56 font-bold border-2 text-sm md:text-md shadow-md shadow-black rounded-md "
               type="number"
               name="cantidad"
               required
@@ -32,10 +32,10 @@ export const Modal = ({ modalForm }) => {
               ¿Cuantos puestos hay?
             </h2>
             <input
-              className="mt-7  text-sm  text-start resize-none  border-2 shadow-md shadow-black  rounded-md "
+              className="mt-7  text-sm  text-center resize-none font-bold border-2 shadow-md shadow-black  rounded-md "
               type="number"
               name="rules"
-              placeholder="   Inserte los puestos"
+              placeholder="   Vuelta de 2 ... 3??"
               cols="26"
               rows="2"
             />
