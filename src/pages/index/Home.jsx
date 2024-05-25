@@ -16,7 +16,7 @@ export const Home = () => {
           <AppsRender AppImg={NumberAsigner} AppName={"Asignador"} AppLink={"/NumberAsigner"} />
           <AppsRender AppImg={SecretSanta} AppName={"Amigo invisible"} AppLink={"/InvisibleFriend"}/>
         </div>
-        <h3 className="hidden md:block m-2 mr-96 text-xs greyFont ">
+        <h3 className="hidden md:block m-2 sm:mr-96 md:mr-56 text-xs greyFont ">
           Toque para hacer zoom
         </h3>
       </div>
