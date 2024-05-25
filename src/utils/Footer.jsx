@@ -46,9 +46,9 @@ export const Footer = () => {
   return (
     <>
       <div className="d pt-1">
-        <h3 className="text-center text-sm   footerGray ">Information</h3>
+        <h3 className="text-center text-sm md:text-base   footerGray ">Information</h3>
         <div className="flex list-none flex-row justify-around mt-4 ">
-          <div className="flex flex-col items-start mt-4 text-xs grayText">
+          <div className="flex flex-col items-start mt-4 text-xs md:text-sm grayText">
             {footer.map((footerLinks) => (
               <li key={footerLinks.link}>
                 {footerLinks.icon === "about" && (
@@ -65,7 +65,7 @@ export const Footer = () => {
             ))}
           </div>
 
-          <div className="flex flex-col items-start mt-4 text-xs grayText ">
+          <div className="flex flex-col items-start mt-4 text-xs md:text-sm grayText ">
             {footer2.map((footerLinks) => (
               <li key={footerLinks.link}>
                 {footerLinks.icon === "link" && (
