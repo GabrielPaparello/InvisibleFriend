@@ -33,7 +33,7 @@ export const InvisibleFriend = () => {
   const modalForm = (e) => {
     e.preventDefault();
     setCantidad(parseInt(e.target.elements.cantidad.value));
-    setRules(parseInt(e.target.elements.rules.value));
+    setRules(e.target.elements.rules.value);
     e.target.reset();
   };
 
@@ -105,13 +105,13 @@ export const InvisibleFriend = () => {
         emailjs.send("service_v4znwzs", "template_gb0wibc", {
           from_name: "Amigo Invisible",
           to_name: element.nombre,
-          message: rules,
+          message: 'Hola ' + 'Estas Son las reglas ' + rules + ' ' +  element.nombre + ' tu amigo invisible es ' + assignments[element.nombre],
           to_email: element.email,
         });
         
       })
    
-  }, [apretameC]);
+  }, [assignments]);
 
   return (
     <>

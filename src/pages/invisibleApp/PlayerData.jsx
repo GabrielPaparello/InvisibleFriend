@@ -12,7 +12,7 @@ export const PlayerData = ({ playerData }) => {
           Nombre
         </h2>
         <textarea
-          className="resize-none mx-7 text-sm md:text-md  h-10 rounded-md p-2 border-2 border-current hover:border-black "
+          className="resize-none mx-7 text-sm md:text-md font-bold  h-10 rounded-md p-2 border-2 border-current hover:border-black "
           name="nombre"
           id=""
           cols="20"
@@ -26,7 +26,7 @@ export const PlayerData = ({ playerData }) => {
         </h2>
         <textarea
           name="email"
-          className="resize-none mx-7 p-2 h-10 rounded-md  border-2  border-slate-500 hover:border-slate-300 text-sm md:text-md"
+          className="resize-none mx-7 p-2 h-10 rounded-md font-bold border-2  border-slate-500 hover:border-slate-300 text-sm md:text-md"
           id=""
           cols="20"
           rows="1"
