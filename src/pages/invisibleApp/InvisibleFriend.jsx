@@ -105,7 +105,7 @@ export const InvisibleFriend = () => {
         emailjs.send("service_v4znwzs", "template_gb0wibc", {
           from_name: "Amigo Invisible",
           to_name: element.nombre,
-          message: 'Hola ' + 'Estas Son las reglas ' + rules + ' ' +  element.nombre + ' tu amigo invisible es ' + assignments[element.nombre],
+          message: 'Estas Son las reglas ' + rules + ' ' +  element.nombre + ' tu amigo invisible es ' + assignments[element.nombre],
           to_email: element.email,
         });
         
