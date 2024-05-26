@@ -46,13 +46,16 @@ const PlayerRender = ({
           } absolute duration-700 blackModalBg max-w-fit min-w-72 text-center  my-3 rounded-xl shadow-xl`}
         >
           <h1 className="font-serif text-2xl font-bold pt-3 text-white">
-            Parejas
+            Amigo Invisible
           </h1>
 
           {/* ARREGLAR EL KEY DE MATH RANDOM TO UUID */}
 
           <div className=" p-2">
-            {player.map((player) => (
+                <h2 className="font-semibold pb-2 text-lg font-sans text-white text-start">
+              Mails enviados Correctamente!</h2>
+            <p className="font-sans font-semibold text-white text-start">Revisen en el mail ingresado la informacion de las reglas acordadas y a quien te toco como amigo invisible!.</p>
+            {/* {player.map((player) => (
               <div key={player.ID} className={`m-4`}>
                 <h2 className="font-semibold pb-2 text-lg font-sans text-white text-start">
                   <span className="font-semibold tracking-wide text-lg">
@@ -67,7 +70,7 @@ const PlayerRender = ({
                   </span>
                 </h2>
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
       </div>
