@@ -15,6 +15,17 @@ export const Modal = ({ modalForm }) => {
             onSubmit={modalForm}
             className="formSettings flex flex-col justify-center text-center items-center "
           >
+            <h2 className="text-lg md:text-2xl text-start text-nowrap -mb-4 font-sans font-semibold text-white tracking-wider ">
+              ¿Quien Organiza el evento...?
+            </h2>
+            <textarea
+              className="mt-7 mb-5  text-sm  text-start  font-bold border-2 shadow-md shadow-black  rounded-md "
+              type="text"
+              name="from"
+              placeholder="   Empresa, Sector, Organizacion ... que organiza el evento."
+              cols="26"
+              rows="2"
+            />
             <h2 className="text-lg mt-5 md:text-2xl md:mt-0   text-nowrap font-sans font-semibold text-white tracking-wider ">
               ¿Cuantos participan?
             </h2>

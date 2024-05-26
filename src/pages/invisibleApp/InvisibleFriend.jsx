@@ -11,6 +11,8 @@ export const InvisibleFriend = () => {
   const [cantidad, setCantidad] = useState();
   // REGLAS DE JUGADORES
   const [rules, setRules] = useState("");
+  // QUIEN ORGANIZA EL EVENTO
+  const [organizer, setOrganizer] = useState("");
 
   // REFACTORIZAR
   let [player, setPlayer] = useState([]);
@@ -34,6 +36,7 @@ export const InvisibleFriend = () => {
     e.preventDefault();
     setCantidad(parseInt(e.target.elements.cantidad.value));
     setRules(e.target.elements.rules.value);
+    setOrganizer(e.target.elements.from.value);
     e.target.reset();
   };
 
@@ -97,20 +100,31 @@ export const InvisibleFriend = () => {
   // LOGICA PARA ENVIAR MAIL
 
   useEffect(() => {
-   console.log('mail enviado');
-      emailjs.init({
-        publicKey: "6DQJxnCew0qoEVF6r",
+    console.log("mail enviado");
+    emailjs.init({
+      publicKey: "6DQJxnCew0qoEVF6r",
+    });
+    player.map((element) => {
+      emailjs.send("service_v4znwzs", "template_gb0wibc", {
+        from_name: "Amigo Invisible",
+        from_organizer: organizer,
+        to_name: element.nombre,
+        message:
+          "Estas Son las reglas que " +
+          " " +
+          organizer +
+          " " +
+          "eligio para que sigas:" +
+          " " +
+          rules +
+          " ",
+        asignado:
+          element.nombre +
+          " tu amigo invisible es " +
+          assignments[element.nombre],
+        to_email: element.email,
       });
-      player.map((element) => {
-        emailjs.send("service_v4znwzs", "template_gb0wibc", {
-          from_name: "Amigo Invisible",
-          to_name: element.nombre,
-          message: 'Estas Son las reglas ' + rules + ' ' +  element.nombre + ' tu amigo invisible es ' + assignments[element.nombre],
-          to_email: element.email,
-        });
-        
-      })
-   
+    });
   }, [assignments]);
 
   return (

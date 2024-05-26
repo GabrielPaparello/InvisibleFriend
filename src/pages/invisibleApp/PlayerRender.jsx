@@ -55,22 +55,6 @@ const PlayerRender = ({
                 <h2 className="font-semibold pb-2 text-lg font-sans text-white text-start">
               Mails enviados Correctamente!</h2>
             <p className="font-sans font-semibold text-white text-start">Revisen en el mail ingresado la informacion de las reglas acordadas y a quien te toco como amigo invisible!.</p>
-            {/* {player.map((player) => (
-              <div key={player.ID} className={`m-4`}>
-                <h2 className="font-semibold pb-2 text-lg font-sans text-white text-start">
-                  <span className="font-semibold tracking-wide text-lg">
-                    Participante{" "}
-                  </span>{" "}
-                  <span className="font-bold text-yellow-400 text-lg">
-                    {player.nombre}
-                  </span>{" "}
-                  Te toco a{" "}
-                  <span className="font-bold text-lg text-yellow-400">
-                    {assignments[player.nombre] || "????"}
-                  </span>
-                </h2>
-              </div>
-            ))} */}
           </div>
         </div>
       </div>
