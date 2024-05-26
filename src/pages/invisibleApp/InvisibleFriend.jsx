@@ -5,7 +5,7 @@ import PlayerRender from "./PlayerRender";
 import "./InvisibleFriend.css";
 import { Nav } from "../../utils/Nav";
 import "../../utils/utils.css";
-// import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 export const InvisibleFriend = () => {
   // CANTIDAD DE JUGADORES
   const [cantidad, setCantidad] = useState();
@@ -90,36 +90,28 @@ export const InvisibleFriend = () => {
       setDisabled(true);
       setStop(false);
     }, 3000);
+
     return () => clearTimeout(time);
-   
   };
 
   // LOGICA PARA ENVIAR MAIL
 
-  // useEffect(() => {
-    
-  //   const sendEmail = () => {
-      
-  //     player.map((element) => {
-  //       const templateParams = {
-  //         to_email: element.email,
-  //         from_name: element.nombre,
-  //         message: `Tu amigo invisible es ${assignments[element.nombre]}`,
-  //       };
-  //       emailjs.send('service_v4znwzs', 'template_gb0wibc', templateParams)
-  //         .then((response) => {
-  //           console.log('SUCCESS!', response.status, response.text);
-  //         }, (error) => {
-  //           console.log('FAILED...', error);
-  //         });
-  //     })
-      
-      
-  
-  //   };
-  // },[apretameC])
-  // 
-
+  useEffect(() => {
+   console.log('mail enviado');
+      emailjs.init({
+        publicKey: "6DQJxnCew0qoEVF6r",
+      });
+      player.map((element) => {
+        emailjs.send("service_v4znwzs", "template_gb0wibc", {
+          from_name: "Amigo Invisible",
+          to_name: element.nombre,
+          message: rules,
+          to_email: element.email,
+        });
+        
+      })
+   
+  }, [apretameC]);
 
   return (
     <>
