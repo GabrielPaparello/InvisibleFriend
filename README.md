@@ -1,13 +1,18 @@
-<<<<<<< HEAD
---- Se necesita.
+# This is a SPA that contains 2 apps
+* Amigo Invisible or Secret Santa
+* Asigner or Asignador de puestos
 
-Prompt Cantidad de Usuarios 
-Cards reutilizables para los usuarios
-Ingresar Nombre usuario, y al siguiente.
-Crear dinamicamente cards como cantidad de usuarios.
+Created Using React-vite
 
--- Hay que arreglar
-Del Apretame C Logica, Si el elemento random es el mismo que match no busca otro simplemente no lo matchea, todavia falta implementar logica para que chequee si un player ya salio.
-=======
-# InvisibleFriend
->>>>>>> c61fc3d2ff8702310b7f6dafdd211b9da83e571a
+
+## Amigo Invisible or Secret Santa
+Just the tipical game 
+for the delivery of what friend did you get asign to i use emailjs to send emails with all the 
+contained data.
+
+
+## Asigner or Asignador de puestos.
+Its a tool ive created for asigning position to the participants, esentially
+creating a random order in witch the participants gets asign to.
+
+created so in my work we can randomly get asign in wich order we are gonna go to the break. `d(D.D)b`
