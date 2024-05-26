@@ -100,30 +100,56 @@ export const InvisibleFriend = () => {
   // LOGICA PARA ENVIAR MAIL
 
   useEffect(() => {
-    console.log("mail enviado");
     emailjs.init({
       publicKey: "6DQJxnCew0qoEVF6r",
     });
     player.map((element) => {
-      emailjs.send("service_v4znwzs", "template_gb0wibc", {
-        from_name: "Amigo Invisible",
-        from_organizer: organizer,
-        to_name: element.nombre,
-        message:
-          "Estas Son las reglas que " +
-          " " +
-          organizer +
-          " " +
-          "eligio para que sigas:" +
-          " " +
-          rules +
-          " ",
-        asignado:
-          element.nombre +
-          " tu amigo invisible es " +
-          assignments[element.nombre],
-        to_email: element.email,
-      });
+      if (element.email.toLowerCase().includes("@gmail.com")) {
+        emailjs.send("service_v4znwzs", "template_gb0wibc", {
+          from_name: "Amigo Invisible",
+          from_organizer: organizer,
+          to_name: element.nombre,
+          message:
+            "Estas Son las reglas que " +
+            " " +
+            organizer +
+            " " +
+            "eligio para que sigas:" +
+            " " +
+            rules +
+            " ",
+          asignado:
+            element.nombre +
+            " tu amigo invisible es " +
+            assignments[element.nombre],
+          to_email: element.email,
+        });
+      } else if (
+        element.email.toLowerCase().includes("@outlook.com") ||
+        element.email.toLowerCase().includes("@hotmail.com") ||
+        element.email.toLowerCase().includes("@live.com") ||
+        element.email.toLowerCase().includes("@outlook.es")
+      ) {
+        emailjs.send("service_7bg3xeu", "template_gb0wibc", {
+          from_name: "Amigo Invisible",
+          from_organizer: organizer,
+          to_name: element.nombre,
+          message:
+            "Estas Son las reglas que " +
+            " " +
+            organizer +
+            " " +
+            "eligio para que sigas:" +
+            " " +
+            rules +
+            " ",
+          asignado:
+            element.nombre +
+            " tu amigo invisible es " +
+            assignments[element.nombre],
+          to_email: element.email,
+        });
+      }
     });
   }, [assignments]);
 
